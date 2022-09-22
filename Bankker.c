@@ -1,165 +1,73 @@
-#include <stdio.h>
-
-#include<conio.h>
-
-int current [S][5] maximum_claim[5][5], available[5];
-
-int on[5] = \{0, 0, 0, 0\}
-
-int maxres[5], running[5], safe = 0;
-
-int counter = 0 ,i,j exec, resources, processes, k = 1
-
-int main()
-
-printf("\nEnter number of processes: ");
-
-scanf("%d", &processes);
-
-for ( i = 0 ; i<processes; i ^ ++ )
-
-running[i]= 1;
-
-counter++
-
-printf("\nEnter number of resources: "); scanf("%d", &resources);
-
-printf("\nEnter Claim Vector:"); for ( i = 0 ; i<resources; i ++)
-
-scanf "%d", &maxres[i]);
-
-printf("Enter Allocated Resource Table:\n");
-
-for ( i = 0 ; <processes; i++)
-
-for(j=0;j<resources; j++)
-
-scanf("%d", &current[i][j]);
-
-printf("\nEnter Maximum Claim Table:\n");
-
-for overline G = 0 ; i<processes; i++)
-
-for(j=0; j<resources; j ++)
-
-scanf("%d", &maximum_claim[i][j]);
-
-printf("\nThe Claim Vector is: ");
-
-for ( i = 0 ; i<resources; i ++)
-
-printf("%d", maxres[i]);
-
-printf("\nThe Allocated Resource Table:\n");
-
-
-
-for (i=0;i<processes; i++)
-
-for(j=0;j<resources; j++)
-
-printf("%d", current[i][j])
-
-printf("The Maximum Claim Table:"k for (i=0;i<processes; i++)
-
-for 6-0;j<resources; j++)
-
-printf("%d", maximum_claim[i][j]);
-
-print("");
-
-||
-
-for (i=0;i<processes; i++)
-
-for 6-0;j<resources; j++)
-
-allocation[] current[i][j];
-
-
-
-
-printf("\nAllocated resources:");
-
-for (i=0; i < resources; i++)
-
-End
-
-End Sub
-
-printf("\t%d", allocation[i]);
-
-for (i=0; i<resources; i++)
-
-available[i]= maxres[i] - allocation[i];
-
-printf("\nAvailable resources:");
-
-for (i=0; i < resources; i++)
-
-printf("%d", available[i]);
-
-printf("\n");
-
-while (counter!=0)
-
-t
-
-safe = 0;
-
-for (i=0; i<processes; i++)
-
-if (running[i])
-
-exec-1:
-
-for (j=0;j<resources; j++)
-
-
-
-if (maximum_claim[i][j] - current[i]]> available[j])
-
-exec = 0;
-
-break;
-
-if (exec)
-
-printf("\nProcess%d is executing\n", i + 1);
-
-running[i]-0;
-
-counter
-
-safe=1;
-
-for (j=0;j<resources; j++)
-
-available[j] += current[i][j];
-
+#include<stdio.h>
+main()
+{
+int q[20],p[50],c=0,c1,d,f,i,j,k=0,n,r,t,b[20],c2[20];
+printf("Enter no of pages:");
+scanf("%d",&n);
+printf("Enter the reference string:");
+for(i=0;i<n;i++)
+            scanf("%d",&p[i]);
+printf("Enter no of frames:");
+scanf("%d",&f);
+q[k]=p[k];
+printf("\n\t%d\n",q[k]);
+c++;
+k++;
+for(i=1;i<n;i++)
+            {
+                        c1=0;
+                        for(j=0;j<f;j++)
+                        {
+                                    if(p[i]!=q[j])
+                                    c1++;
+                        }
+                        if(c1==f)
+                        {
+                                    c++;
+                                    if(k<f)
+                                    {
+                                                q[k]=p[i];
+                                                k++;
+                                                for(j=0;j<k;j++)
+                                                printf("\t%d",q[j]);
+                                                printf("\n");
+                                    }
+                                    else
+                                    {
+                                                for(r=0;r<f;r++)
+                                                {
+                                                            c2[r]=0;
+                                                            for(j=i-1;j<n;j--)
+                                                            {
+                                                            if(q[r]!=p[j])
+                                                            c2[r]++;
+                                                            else
+                                                            break;
+                                                }
+                                    }
+                                    for(r=0;r<f;r++)
+                                     b[r]=c2[r];
+                                    for(r=0;r<f;r++)
+                                    {
+                                                for(j=r;j<f;j++)
+                                                {
+                                                            if(b[r]<b[j])
+                                                            {
+                                                                        t=b[r];
+                                                                        b[r]=b[j];
+                                                                        b[j]=t;
+                                                            }
+                                                }
+                                    }
+                                    for(r=0;r<f;r++)
+                                    {
+                                                if(c2[r]==b[0])
+                                                q[r]=p[i];
+                                                printf("\t%d",q[r]);
+                                    }
+                                    printf("\n");
+                        }
+            }
 }
-
-break;
-
-if (!safe)
-
-printf("\nThe processes are in unsafe state.\n");
-
-break;
-
-
-else
-
-printf("\nThe process is in safe state");
-
-printf("\nAvailable vector:");
-
-for (i=0; i<resources; i++)
-
-printf("\t%d", available[i]);
-
-printf("\n");
-
-getch();
-
-return 0;
+printf("\nThe no of page faults is %d",c);
+}
