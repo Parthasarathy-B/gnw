@@ -114,23 +114,6 @@ for(i=1;i<n;i++)
                                     }
                                     for(r=0;r<f;r++)
                                      b[r]=c2[r];
-                                    for(r=0;r<f;r++)
-                                    {
-                                                for(j=r;j<f;j++)
-                                                {
-                                                            if(b[r]<b[j])
-                                                            {
-                                                                        t=b[r];
-                                                                        b[r]=b[j];
-                                                                        b[j]=t;
-                                                            }
-                                                }
-                                    }
-                                    for(r=0;r<f;r++)
-                                    {
-                                                if(c2[r]==b[0])
-                                                q[r]=p[i];
-                                                printf("\t%d",q[r]);
-                                    }
+                           
  }
 }
