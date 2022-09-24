@@ -68,6 +68,7 @@ for(i=0;i<no;i++)
 
 #include<stdio.h>
 #include<conio.h>
+
 void main()
 {
 int q[20],p[50],c=0,c1,d,f,i,j,k=0,n,r,t,b[20],c2[20];
@@ -98,8 +99,8 @@ for(i=1;i<n;i++)
                                                 q[k]=p[i];
                                                 k++;
                                                 for(j=0;j<k;j++)
-                                                printf("\t%d",q[j]);
-                                                printf("\n");
+                                                printf("\t%d",q[j],"\n");
+                                                
                                     }
                                     else
                                     {
