@@ -132,9 +132,5 @@ for(i=1;i<n;i++)
                                                 q[r]=p[i];
                                                 printf("\t%d",q[r]);
                                     }
-                                    printf("\n");
-                        }
-            }
-}
-printf("\nThe no of page faults is %d",c);
+ }
 }
