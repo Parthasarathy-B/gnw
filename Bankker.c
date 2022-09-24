@@ -112,8 +112,7 @@ for(i=1;i<n;i++)
                                                             break;
                                                 }
                                     }
-                                    for(r=0;r<f;r++)
-                                     b[r]=c2[r];
+                                    
                            
  }
 }
