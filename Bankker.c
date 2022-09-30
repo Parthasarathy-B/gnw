@@ -1,37 +1,46 @@
-
 #include<stdio.h>
-int main()
+#include<conio.h>
+#define max 25
+void main()
 {
-int i,j,n,a[50],frame[10],no,k,avail,count=0;
-            printf("\n ENTER THE NUMBER OF PAGES:\n");
-scanf("%d",&n);
-            printf("\n ENTER THE PAGE NUMBER :\n");
-            for(i=1;i<=n;i++)
-            scanf("%d",&a[i]);
-            printf("\n ENTER THE NUMBER OF FRAMES :");
-            scanf("%d",&no);
-for(i=0;i<no;i++)
-            frame[i]= -1;
-                        j=0;
-                        printf("\tref string\t page frames\n");
-                        for(i=1;i<=n;i++)
-                        {
-                                    printf("%d\t\t",a[i]);
-                                    avail=0;
-                                    for(k=0;k<no;k++)
-                                    if(frame[k]==a[i])
-                                                avail=1;
-                                    if (avail==0)
-                                    {
-                                                frame[j]=a[i];
-                                                j=(j+1)%no;
-                                                count++;
-                                                for(k=0;k<no;k++)
-                                                printf("%d\t",frame[k]);
+int frag[max],b[max],f[max],i,j,nb,nf,temp;
+static int bf[max],ff[max];
+clrscr();
+printf("\nEnter the number of blocks:");
+scanf("%d",&nb);
+printf("Enter the number of files:");
+scanf("%d",&nf);
+printf("\nEnter the size of the blocks:-\n");
+for(i=1;i<=nb;i++)
+{
+printf("Block %d:",i);
+scanf("%d",&b[i]);
 }
-                                    printf("\n");
+printf("Enter the size of the files:-\n");
+for(i=1;i<=nf;i++)
+{
+printf("File %d:",i);
+scanf("%d",&f[i]);
 }
-                        printf("Page Fault Is %d",count);
-                        return 0;
+for(i=1;i<=nf;i++)
+{
+for(j=1;j<=nb;j++)
+{
+if(bf[j]!=1)
+{
+temp=b[j]-f[i];
+if(temp>=0)
+{
+ff[i]=j;
+break;
 }
- 
+}
+}
+frag[i]=temp;
+bf[ff[i]]=1;
+}
+printf("\nFile_no:\tFile_size :\tBlock_no:\tBlock_size:\tFragment");
+for(i=1;i<=nf;i++)
+printf("\n%d\t\t%d\t\t%d\t\t%d\t\t%d",i,f[i],ff[i],b[ff[i]],frag[i]);
+getch();
+}
