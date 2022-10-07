@@ -1,46 +1,73 @@
 #include<stdio.h>
-#include<conio.h>
-#define max 25
-void main()
+main()
 {
-int frag[max],b[max],f[max],i,j,nb,nf,temp;
-static int bf[max],ff[max];
-clrscr();
-printf("\nEnter the number of blocks:");
-scanf("%d",&nb);
-printf("Enter the number of files:");
-scanf("%d",&nf);
-printf("\nEnter the size of the blocks:-\n");
-for(i=1;i<=nb;i++)
-{
-printf("Block %d:",i);
-scanf("%d",&b[i]);
+int q[20],p[50],c=0,c1,d,f,i,j,k=0,n,r,t,b[20],c2[20];
+printf("Enter no of pages:");
+scanf("%d",&n);
+printf("Enter the reference string:");
+for(i=0;i<n;i++)
+            scanf("%d",&p[i]);
+printf("Enter no of frames:");
+scanf("%d",&f);
+q[k]=p[k];
+printf("\n\t%d\n",q[k]);
+c++;
+k++;
+for(i=1;i<n;i++)
+            {
+                        c1=0;
+                        for(j=0;j<f;j++)
+                        {
+                                    if(p[i]!=q[j])
+                                    c1++;
+                        }
+                        if(c1==f)
+                        {
+                                    c++;
+                                    if(k<f)
+                                    {
+                                                q[k]=p[i];
+                                                k++;
+                                                for(j=0;j<k;j++)
+                                                printf("\t%d",q[j]);
+                                                printf("\n");
+                                    }
+                                    else
+                                    {
+                                                for(r=0;r<f;r++)
+                                                {
+                                                            c2[r]=0;
+                                                            for(j=i-1;j<n;j--)
+                                                            {
+                                                            if(q[r]!=p[j])
+                                                            c2[r]++;
+                                                            else
+                                                            break;
+                                                }
+                                    }
+                                    for(r=0;r<f;r++)
+                                     b[r]=c2[r];
+                                    for(r=0;r<f;r++)
+                                    {
+                                                for(j=r;j<f;j++)
+                                                {
+                                                            if(b[r]<b[j])
+                                                            {
+                                                                        t=b[r];
+                                                                        b[r]=b[j];
+                                                                        b[j]=t;
+                                                            }
+                                                }
+                                    }
+                                    for(r=0;r<f;r++)
+                                    {
+                                                if(c2[r]==b[0])
+                                                q[r]=p[i];
+                                                printf("\t%d",q[r]);
+                                    }
+                                    printf("\n");
+                        }
+            }
 }
-printf("Enter the size of the files:-\n");
-for(i=1;i<=nf;i++)
-{
-printf("File %d:",i);
-scanf("%d",&f[i]);
-}
-for(i=1;i<=nf;i++)
-{
-for(j=1;j<=nb;j++)
-{
-if(bf[j]!=1)
-{
-temp=b[j]-f[i];
-if(temp>=0)
-{
-ff[i]=j;
-break;
-}
-}
-}
-frag[i]=temp;
-bf[ff[i]]=1;
-}
-printf("\nFile_no:\tFile_size :\tBlock_no:\tBlock_size:\tFragment");
-for(i=1;i<=nf;i++)
-printf("\n%d\t\t%d\t\t%d\t\t%d\t\t%d",i,f[i],ff[i],b[ff[i]],frag[i]);
-getch();
+printf("\nThe no of page faults is %d",c);
 }
